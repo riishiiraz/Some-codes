@@ -66,5 +66,10 @@ int main()
 		printf("\nExited !");
 		return 0;
 	}
+	
+	else
+	{
+		printf("Wrong Choice Entered !");
+	}
 
 }
