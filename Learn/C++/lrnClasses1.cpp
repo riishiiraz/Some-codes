@@ -1,3 +1,6 @@
+// author @riishiiraz
+// Program to Implement [ OOPs, Access Modifiers, Method definition outside the class ]
+
 #include <iostream>
 using namespace std;
 
