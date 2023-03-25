@@ -4,7 +4,7 @@ long long factorial(int n){
     if(n<=1)
         return 1;
     
-    return ((long long)n) * factorial(n-1);
+    return n * factorial(n-1);
 }
 
 long long nCr( int n , int r){
@@ -16,7 +16,7 @@ void pascle(int n){
     int i,j;
 
     for (i = 0 ; i<n ; i++){
-
+        
         for ( j=(n-i) ; j>0 ; j-- ){
             printf(" ");
         }
@@ -27,7 +27,6 @@ void pascle(int n){
 
         printf("\n");
     }
-
 }
 
 
