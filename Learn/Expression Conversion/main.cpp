@@ -200,7 +200,7 @@ class Expression{
 
         initStack();
         int length = strlen(infix);
-        char *prefix = (char*) malloc(sizeof(char)* (length) );
+        char *postfix = (char*) malloc(sizeof(char)* (length) );
 
         char *reverseInfix = (char*) malloc(sizeof(char)* (length) );
         reverse(infix, reverseInfix, length);
@@ -216,7 +216,7 @@ class Expression{
 
 
             if(!isOperator(ch)){ // For Operands
-                infix[j++] = ch;
+                postfix[j++] = ch;
                 
             }
 
@@ -229,7 +229,7 @@ class Expression{
                 else if(ch=='('){
                     char tmp=stack.pop();
                     while(tmp!=')'){
-                        infix[j++]=tmp;
+                        postfix[j++]=tmp;
                         tmp=stack.pop();
                     }
                 }
@@ -240,7 +240,7 @@ class Expression{
 
                 else{
                     while (! stack.isEmpty() ){
-                        infix[j++] = stack.pop();
+                        postfix[j++] = stack.pop();
 
                         if(precedence(ch) >= precedence(stack.peek()))
                             break;
@@ -267,15 +267,16 @@ class Expression{
 
         while (!stack.isEmpty())
         {
-            infix[j++] = stack.pop();
+            postfix[j++] = stack.pop();
         }
         
 
         char *output = (char*) malloc(sizeof(char) * (j+1));
-        reverse(infix , output , j);
+        reverse(postfix , output , j);
         output[j++] = '\0';
 
-        free(infix);
+        free(postfix);
+        free(reverseInfix);
 
         return output;
 
